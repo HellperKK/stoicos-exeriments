@@ -1,0 +1,1 @@
+print "bonjour j'ai" 42 "ans !"
