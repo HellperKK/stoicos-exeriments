@@ -1,28 +1,24 @@
-(* old verison token
+type token =
+  |OPar
+  |CPar
+  |SQuote
+  |DQuote
+  |OBra
+  |CBra
+  |OCurl
+  |CCurl
+  |Number of float
+  |Boolean of bool
+  |Ident of string
 
-type valeur =
-	|Number of float
-	|Caractere of char
-	|Chaine of string
-  |Symbol of string
-	|Var of name
-	|Booleen of bool
-	|Proc of valeur list
-	|Bloc of valeur list
-	|Liste of valeur list
-  |ListParse of valeur list
-	|Fonction of func
-  |Struct of ((string, valeur) Hashtbl.t)
-	|Vide
-
-and name =
-  |Variable of string
-  |NSpace of (string * string)
-
-and func =
-  |NativeFun of (valeur list -> valeur)
-  |CustomFun of (string list) * (valeur list)
-  *)
+let reg = Str.regexp "[A-Za-z0-9]"
+let chaine = "coucou c'est moi"
+let test = Str.string_match "[A-Za-z0-9]" chaine 0
+let matche = Str.matched_string chaine
+let _ = print_endline matche
+(* let lex stream =
+  let rec aux acc = function
+    |x when x ->*)
 
 let _ = print_endline "Hello world !"
 
