@@ -10,4 +10,8 @@ module Stoicos
 	class Variable < Expression
 		value :name, String
 	end
+
+	class FunCall < Expression
+		value :elems, Array
+	end
 end

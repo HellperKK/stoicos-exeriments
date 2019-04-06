@@ -9,8 +9,8 @@ module Stoicos
 		production(:input, 'statement SEMI') { |s, _| s }
 
 		production(:statement) do
-			clause('LPAREN RPAREN')		{ |_, _| [] }
-			clause('LPAREN e_list RPAREN')		{ |_, e, _| e }
+			clause('LPAREN RPAREN')		{ |_, _| FunCall.new([]) }
+			clause('LPAREN e_list RPAREN')		{ |_, e, _| FunCall.new(e) }
 		end
 
     production(:e_list) do
@@ -34,6 +34,6 @@ module Stoicos
 
 		list(:arg_defs, :IDENT, :COMMA)
 =end
-		finalize use: 'stoparser.tbl'
+		#finalize use: 'stoparser.tbl'
 	end
 end
