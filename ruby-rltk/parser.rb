@@ -6,7 +6,7 @@ require_relative './ast'
 
 module Stoicos
 	class Parser < RLTK::Parser
-		production(:input, 'statement SEMI') { |s, _| s }
+		production(:input, 'statement') { |s| s }
 
 		production(:statement) do
 			clause('LPAREN RPAREN')		{ |_, _| FunCall.new([]) }
@@ -23,17 +23,5 @@ module Stoicos
 			clause('IDENT')	{ |i| Variable.new(i) }
 		end
 
-=begin
-		list(:args, :e, :COMMA)
-
-		production(:ex, 'EXTERN p_body')	{ |_, p| p }
-		production(:p, 'DEF p_body')		{ |_, p| p }
-		production(:f, 'p e')			{ |p, e| Function.new(p, e) }
-
-		production(:p_body, 'IDENT LPAREN arg_defs RPAREN') { |name, _, arg_names, _| Prototype.new(name, arg_names) }
-
-		list(:arg_defs, :IDENT, :COMMA)
-=end
-		#finalize use: 'stoparser.tbl'
 	end
 end
