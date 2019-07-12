@@ -4,5 +4,5 @@ enum Token {
     NSpace(name:String, key:String);
     Proce(vals:Array<Token>);
     Blocke(vals:Array<Token>);
-    Array(vals: Array<Token>);
+    Arr(vals:Array<Token>);
 }
